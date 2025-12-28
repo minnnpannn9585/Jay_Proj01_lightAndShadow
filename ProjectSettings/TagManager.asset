@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Weapon
+  - LightBullet
+  - DarkBullet
   layers:
   - Default
   - TransparentFX
