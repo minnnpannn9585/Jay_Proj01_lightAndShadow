@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     private bool isweapon02 = false;
     public GameObject bullet01;
     public GameObject bullet02;
+    public float shootSpeed;
     
     private Vector3 mousePos;
     
@@ -38,13 +39,13 @@ public class PlayerMove : MonoBehaviour
             if (isWeapon01)
             {
                 GameObject bulletOne = Instantiate(bullet01, transform.position, Quaternion.identity);
-                bulletOne.GetComponent<Rigidbody2D>().velocity = dir.normalized * 2f;
+                bulletOne.GetComponent<Rigidbody2D>().velocity = dir.normalized * shootSpeed;
                 
             }
             else if (isweapon02)
             {
                 GameObject bulletTwo = Instantiate(bullet02, transform.position, Quaternion.identity);
-                bulletTwo.GetComponent<Rigidbody2D>().velocity = dir.normalized * 2f;
+                bulletTwo.GetComponent<Rigidbody2D>().velocity = dir.normalized * shootSpeed;
             }
         }
     }

@@ -9,6 +9,10 @@ public class DarkEnemy : MonoBehaviour
     {
         if (other.CompareTag("DarkBullet"))
         {
+            if (GameObject.Find("LevelManager") != null)
+            {
+                GameObject.Find("LevelManager").GetComponent<LevelManager>().score++;
+            }
             Destroy(this.gameObject);
         }
     }
