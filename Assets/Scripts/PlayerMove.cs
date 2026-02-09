@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
@@ -16,11 +17,20 @@ public class PlayerMove : MonoBehaviour
     public float shootSpeed;
     
     private Vector3 mousePos;
+    public SpriteRenderer sr;
     
     void Update()
     {
         Vector3 dir = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0).normalized;
         rb.velocity = dir * moveSpeed;
+        if (rb.velocity.x < 0f)
+        {
+            sr.flipX = true;
+        }
+        else if (rb.velocity.x > 0f)
+        {
+            sr.flipX = false;
+        }
         
         mousePos = new Vector3(
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x, 
