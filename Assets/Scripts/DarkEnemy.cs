@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class DarkEnemy : MonoBehaviour
 {
+    public GameObject hitSfx;
+    public GameObject hitVfx;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("DarkBullet"))
@@ -13,6 +15,9 @@ public class DarkEnemy : MonoBehaviour
             {
                 GameObject.Find("LevelManager").GetComponent<LevelManager>().score++;
             }
+
+            Instantiate(hitVfx, transform.position, Quaternion.identity);
+            Instantiate(hitSfx, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
     }
