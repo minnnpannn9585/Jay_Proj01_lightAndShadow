@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     public GameObject zoneToOpen;
     public Transform player;
     public Vector3 transportPosition;
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

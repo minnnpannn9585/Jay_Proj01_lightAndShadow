@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
     
     private Vector3 mousePos;
     public SpriteRenderer sr;
+    public Animator anim;
     
     void Update()
     {
@@ -31,6 +32,8 @@ public class PlayerMove : MonoBehaviour
         {
             sr.flipX = false;
         }
+
+        anim.SetBool("isWalking", dir.sqrMagnitude > 0f);
         
         mousePos = new Vector3(
             Camera.main.ScreenToWorldPoint(Input.mousePosition).x, 
@@ -46,15 +49,17 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Vector3 dir = mousePos - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
             if (isWeapon01)
             {
-                GameObject bulletOne = Instantiate(bullet01, transform.position, Quaternion.identity);
+                GameObject bulletOne = Instantiate(bullet01, transform.position, rotation);
                 bulletOne.GetComponent<Rigidbody2D>().velocity = dir.normalized * shootSpeed;
                 
             }
             else if (isweapon02)
             {
-                GameObject bulletTwo = Instantiate(bullet02, transform.position, Quaternion.identity);
+                GameObject bulletTwo = Instantiate(bullet02, transform.position, rotation);
                 bulletTwo.GetComponent<Rigidbody2D>().velocity = dir.normalized * shootSpeed;
             }
         }

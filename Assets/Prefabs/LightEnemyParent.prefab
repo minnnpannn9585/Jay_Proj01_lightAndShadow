@@ -178,9 +178,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
+    - - {x: 0.49045062, y: 0.8178946}
+      - {x: -0.41565406, y: 0.8471694}
+      - {x: -0.5875062, y: -0.7845351}
+      - {x: 0.7041807, y: -0.828288}
   m_UseDelaunayMesh: 0
 --- !u!114 &8162058513516392112
 MonoBehaviour:
@@ -325,7 +326,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
+  m_LocalScale: {x: 0.11999999, y: 0.11999999, z: 0.11999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6787159391744405111}
